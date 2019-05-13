@@ -47,27 +47,6 @@ protected $link;
     }
 
 }
-// Check connection
 
-//show Customer
-/*    public function showCustomer() {
-    	$sql = "SELECT * FROM customers";
-    	$query = $this->link->query($sql);
-    	return $query;
-    }
-//add Customer
-public function addCustomer($nama, $email, $alamat, $notelp) {
-	$sql = "INSERT INTO customers (nama, email, alamat, notelp) VALUES ($nama', '$email', '$alamat', '$notelp')";
-	$query = $this->link->query($sql);
-	if (!$query) {
-		return "Failed";
-		# code...
-	}
-	else {
-		return "Success";
-	}
-}
-
-}*/
 
 ?>
