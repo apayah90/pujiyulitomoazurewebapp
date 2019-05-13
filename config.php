@@ -13,7 +13,7 @@ server with default setting (user 'root' with no password) */
  {
 
 private $server = 'mysql:host=pujiyulitomowebappserver.database.windows.net;dbname=pujiyulitomowebapp';
-private $user = 'apayah90';
+private $user = 'apayah90@pujiyulitomowebappserver';
 private $pass = 'terserah90!';
 private $db_name = 'pujiyulitomowebapp';
 private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
