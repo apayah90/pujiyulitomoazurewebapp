@@ -12,10 +12,10 @@ server with default setting (user 'root' with no password) */
  Class Config
  {
 
-private $server = 'mysql:host=localhost;dbname=pujiyulitomoapp';
-private $user = 'root';
-private $pass = '';
-private $db_name = 'pujiyulitomoapp';
+private $server = 'mysql:host=pujiyulitomowebappserver.database.windows.net;dbname=pujiyulitomowebapp';
+private $user = 'apayah90';
+private $pass = 'terserah90!';
+private $db_name = 'pujiyulitomowebapp';
 private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 protected $link;
  
