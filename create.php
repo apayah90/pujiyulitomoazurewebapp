@@ -79,8 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
            echo "Failed". $e->getMessage();
        }
 
-
-
+	$database->close();
                       
         header("location: index.php");
     }
