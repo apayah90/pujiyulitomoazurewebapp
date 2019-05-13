@@ -30,7 +30,7 @@ protected $link;
 // Check connection
      public function openConnection() {
      try {
-      $this->link = new PDO("sqlsrv:server = tcp:pujiyulitomowebappserver.database.windows.net,1433; Database = pujiyulitomowebapp", "apayah90", "terserah90");
+      $this->link = new PDO("sqlsrv:server = pujiyulitomowebappserver.database.windows.net; Database = pujiyulitomowebapp", "apayah90", "terserah90!");
       $link->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
        return $this->link;
        echo "Berhasil terkoneksi ke database";
