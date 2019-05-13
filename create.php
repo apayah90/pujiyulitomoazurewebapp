@@ -81,8 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 
 
-       //Close Connection
-       $database->close();
                       
         header("location: index.php");
     }
