@@ -1,114 +1,86 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <style type="text/css">
-        .wrapper{
-            width: 650px;
-            margin: 0 auto;
+<html>
+ <head>
+ <Title>Registration Form</Title>
+ <style type="text/css">
+ 	body { background-color: #fff; border-top: solid 10px #000;
+ 	    color: #333; font-size: .85em; margin: 20; padding: 20;
+ 	    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+ 	}
+ 	h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+ 	h1 { font-size: 2em; }
+ 	h2 { font-size: 1.75em; }
+ 	h3 { font-size: 1.2em; }
+ 	table { margin-top: 0.75em; }
+ 	th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+ 	td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+ </style>
+ </head>
+ <body>
+ <h1>Register here!</h1>
+ <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+ <form method="post" action="index.php" enctype="multipart/form-data" >
+       Name  <input type="text" name="name" id="name"/></br></br>
+       Email <input type="text" name="email" id="email"/></br></br>
+       Job <input type="text" name="job" id="job"/></br></br>
+       <input type="submit" name="submit" value="Submit" />
+       <input type="submit" name="load_data" value="Load Data" />
+ </form>
+ <?php
+    $host = "pujiyulitomowebappserver.database.windows.net";
+    $user = "apayah90";
+    $pass = "terserah90!";
+    $db = "pujiyulitomowebapp";
+    try {
+        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
+        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    } catch(Exception $e) {
+        echo "Failed: " . $e;
+    }
+    if (isset($_POST['submit'])) {
+        try {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $job = $_POST['job'];
+            $date = date("Y-m-d");
+            // Insert data
+            $sql_insert = "INSERT INTO Registration (name, email, job, date) 
+                        VALUES (?,?,?,?)";
+            $stmt = $conn->prepare($sql_insert);
+            $stmt->bindValue(1, $name);
+            $stmt->bindValue(2, $email);
+            $stmt->bindValue(3, $job);
+            $stmt->bindValue(4, $date);
+            $stmt->execute();
+        } catch(Exception $e) {
+            echo "Failed: " . $e;
         }
-        .page-header h2{
-            margin-top: 0;
-        }
-        table tr td:last-child a{
-            margin-right: 15px;
-        }
-    </style>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
-</head>
-<body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header clearfix">
-                        <h2 class="pull-left">Daftar Pelanggan Pulsa</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Tambah Pembeli Baru</a>
-                        
-                    </div>
-                                <?php 
-                session_start();
-                if(isset($_SESSION['message'])){
-                    ?>
-                    <div class="alert alert-info text-center" style="margin-top:20px;">
-                        <?php echo $_SESSION['message']; ?>
-                    </div>
-                    <?php
-
-                    unset($_SESSION['message']);
+        echo "<h3>Your're registered!</h3>";
+    } else if (isset($_POST['load_data'])) {
+        try {
+            $sql_select = "SELECT * FROM Registration";
+            $stmt = $conn->query($sql_select);
+            $registrants = $stmt->fetchAll(); 
+            if(count($registrants) > 0) {
+                echo "<h2>People who are registered:</h2>";
+                echo "<table>";
+                echo "<tr><th>Name</th>";
+                echo "<th>Email</th>";
+                echo "<th>Job</th>";
+                echo "<th>Date</th></tr>";
+                foreach($registrants as $registrant) {
+                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<td>".$registrant['email']."</td>";
+                    echo "<td>".$registrant['job']."</td>";
+                    echo "<td>".$registrant['date']."</td></tr>";
                 }
-            ?>
-
-
-                    
-                      
-                        <table class='table table-bordered table-striped'>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>Notelp</th>
-                                <th>Action</th>
-                            </tr>    
-                        
-
-                    <?php
-                    //include config
-                    require_once("config.php");
-                    $config = new Config();
-                    $cfg= $config->openConnection();
-                    
-
-                    try{
-
-                        $sql = 'SELECT * FROM customers';
-                        foreach ($cfg->query($sql) as $row) {
-                            ?>
-                            <tr>
-                            <td><?php echo $row['id']; ?></td>
-                            <td><?php echo $row['nama']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['alamat']; ?></td>
-                            <td><?php echo $row['notelp']; ?></td>
-                            <td><a href='#edit_<?php echo $row['id']; ?>' title='Update Record' data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></a>
-                            <a href='#delete_<?php echo $row['id']; ?>' title='Delete Record' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></a>
-                            </td>
-                            <?php include('edit_delete_modal.php'); ?>
-                            </tr>
-                            <?php
-                           }
-
-                        }
-                        catch(PDOException $e) {
-                            echo "Failed". $e->getMEssage();
-                        }
-
-                        //close connection
-                        $config->close();
-
-                        ?>
-
-
-
-                    </table>
-                
-                    </div>
-                </div>
-            </div>        
-        </div>
-    </div>
-    <script src="jquery.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+                echo "</table>";
+            } else {
+                echo "<h3>No one is currently registered.</h3>";
+            }
+        } catch(Exception $e) {
+            echo "Failed: " . $e;
+        }
+    }
+ ?>
+ </body>
+ </html>
