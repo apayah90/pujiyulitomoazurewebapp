@@ -29,7 +29,7 @@
        <input type="submit" name="load_data" value="Load Data" />
  </form>
  <?php
-  
+  require 'config.php';
         $database = new Config();
         $conn = $database->openConnection();
     if (isset($_POST['submit'])) {
