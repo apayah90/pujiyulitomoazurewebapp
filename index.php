@@ -23,25 +23,25 @@
                     <form action="index.php" method="post">
                         <div class="form-group">
                             <label>Nama</label>
-                            <input type="text" name="nama" class="form-control" value="nama">
+                            <input type="text" name="nama" class="form-control" id="name">
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <textarea name="email" class="form-control" value="email"></textarea>
+                            <input type="text" name="email" class="form-control" id="email">
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
-                            <input type="text" name="alamat" class="form-control" value="alamat">
+                            <input type="text" name="alamat" class="form-control" value="job">
                             <span class="help-block"></span>
                         </div>
 						<div class="form-group">
                             <label>No.Telp</label>
-                            <textarea name="notelp" class="form-control" value="notelp"></textarea>
+                            <input type="text" name="notelp" class="form-control" id="notelpn">
                             <span class="help-block"></span>
                         </div>
-                        <input type="submit" name="addCustomer" class="btn btn-primary" value="Submit">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
                         <a href="index.php" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
@@ -49,12 +49,12 @@
         </div>
     </div>
 
+
  <?php
    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
     $pass = "terserah90!";
     $db = "pujiyulitomowebapp";
-
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -103,7 +103,7 @@
                 echo "<h3>No one is currently registered.</h3>";
             }
         } catch(Exception $e) {
-            echo "Failed: " . $e;
+            echo " Failed conn: " . $e;
         }
     }
  ?>
