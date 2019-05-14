@@ -29,16 +29,9 @@
        <input type="submit" name="load_data" value="Load Data" />
  </form>
  <?php
-    $host = "pujiyulitomowebappserver.database.windows.net";
-    $user = "apayah90";
-    $pass = "terserah90!";
-    $db = "pujiyulitomowebapp";
-    try {
-        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    } catch(Exception $e) {
-        echo "Failed: " . $e;
-    }
+  
+        $database = new Config();
+        $conn = $database->openConnection();
     if (isset($_POST['submit'])) {
         try {
             $name = $_POST['name'];
