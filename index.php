@@ -42,7 +42,7 @@
                             <span class="help-block"></span>
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-default">Cancel</a>
+                        <input type="submit" name="load_data" class="btn btn-default"value="Cancel">
                     </form>
                 </div>
             </div>        
