@@ -12,32 +12,21 @@ server with default setting (user 'root' with no password) */
  Class Config
  {
 
-private $server = 'mysql:host=pujiyulitomowebappserver.database.windows.net;dbname=pujiyulitomowebapp';
-private $user = 'apayah90@pujiyulitomowebappserver';
-private $pass = 'terserah90!';
-private $db_name = 'pujiyulitomowebapp';
-private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
-protected $link;
- 
-
- 
- //Establishes the connection
-
- //Establishes the connection
- 
+    $host = "pujiyulitomowebappserver.database.windows.net";
+    $user = "apayah90";
+    $pass = "terserah90!";
+    $db = "pujiyulitomowebapp";
     
 
 // Check connection
      public function openConnection() {
-     try {
-      $this->link = new PDO("sqlsrv:server = pujiyulitomowebappserver.database.windows.net; Database = pujiyulitomowebapp", "apayah90", "terserah90!");
-      $link->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-       return $this->link;
-       echo "Berhasil terkoneksi ke database";
-    } catch(Exception $e) {
-        echo "Failed: " . $e->getMessage();
-    }
 
+    try {
+        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
+        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    } catch(Exception $e) {
+        echo "Failed: " . $e;
+    }
     }
 
     public function close() {
