@@ -49,6 +49,23 @@
         </div>
     </div>
 
+	<div class="container">
+    <h1 class="page-header text-center">PHP CRUD Operation using PDO</h1>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <a href="#addnew" class="btn btn-primary" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span> New</a>
+            <table class="table table-bordered table-striped" style="margin-top:20px;">
+                <thead>
+                    <th>ID</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </thead>
+            </table>
+	    </div>
+		</div>
+	</div>
 
  <?php
    $host = "pujiyulitomowebappserver.database.windows.net";
