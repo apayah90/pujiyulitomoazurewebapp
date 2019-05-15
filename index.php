@@ -8,9 +8,9 @@
         font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     }
     h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.75em; }
-    h3 { font-size: 1.2em; }
+    h1 { font-size: 6em; }
+    h2 { font-size: 5.25em; }
+    h3 { font-size: 3.6em; }
     table { margin-top: 0.75em; }
     th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
     td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
@@ -18,7 +18,7 @@
  </head>
  <body>
  <h1>Register here!</h1>
-  <a href="https://www.http://pujiyulitomowebapp.azurewebsites.net" class="btn btn-success pull-right">Tambah Pembeli Baru</a>
+  <a href="http://pujiyulitomowebapp.azurewebsites.net" class="btn btn-success pull-right">Tambah Pembeli Baru</a>
  <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
    <div class="wrapper">
         <div class="container-fluid">
