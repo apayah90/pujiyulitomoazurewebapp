@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label>No.Telp</label>
-                            <input type="text" name="notelp" class="form-control" id="notelpn">
+                            <input type="text" name="notelp" class="form-control" id="notelp">
                             <span class="help-block"></span>
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
@@ -69,7 +69,7 @@
     }
     if (isset($_POST['submit'])) {
         try {
-            $name = $_POST['nama'];
+            $nama = $_POST['nama'];
             $email = $_POST['email'];
             $alamat = $_POST['alamat'];
             $notelp = $_POST['notelp'];
