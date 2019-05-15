@@ -93,17 +93,21 @@
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
                 echo "DAFTAR PELANGGAN PULSA";
-                echo "<table class="table table-bordered table-striped">";
+                echo "<table class='table table-bordered table-striped'>";
+                echo "<thead>";
                 echo "<tr><th>Nama</th>";
                 echo "<th>Email</th>";
                 echo "<th>Job</th>";
                 echo "<th>Date</th></tr>";
+                echo "</thead>";
+                echo "<tbody>";
                 foreach($registrants as $registrant) {
                     echo "<tr><td>".$registrant['name']."</td>";
                     echo "<td>".$registrant['email']."</td>";
                     echo "<td>".$registrant['job']."</td>";
                     echo "<td>".$registrant['date']."</td></tr>";
                 }
+                echo "</tbody>";
                 echo "</table>";
             } else {
                 echo "<h3>No one is currently registered.</h3>";
