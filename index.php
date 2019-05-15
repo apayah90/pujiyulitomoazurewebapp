@@ -18,7 +18,7 @@
  </head>
  <body>
  <h1>Register here!</h1>
-  <a href="create.php" class="btn btn-success pull-right">Tambah Pembeli Baru</a>
+  <a href="https://www.http://pujiyulitomowebapp.azurewebsites.net" class="btn btn-success pull-right">Tambah Pembeli Baru</a>
  <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
    <div class="wrapper">
         <div class="container-fluid">
@@ -97,8 +97,8 @@
                 echo "<thead>";
                 echo "<tr><th>Nama</th>";
                 echo "<th>Email</th>";
-                echo "<th>Job</th>";
-                echo "<th>Date</th></tr>";
+                echo "<th>Alamat</th>";
+                echo "<th>Notelp</th></tr>";
                 echo "</thead>";
                 echo "<tbody>";
                 foreach($registrants as $registrant) {
