@@ -1,90 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Record</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h2>Create Record</h2>
-                    </div>
-                    <p>Please fill this form and submit to add employee record to the database.</p>
-                    <form action="index.php" method="post">
-                        <div class="form-group">
-                            <label>Nama</label>
-                            <input type="text" name="nama" class="form-control" id="name">
-                            <span class="help-block"></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="text" name="email" class="form-control" id="email">
-                            <span class="help-block"></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Alamat</label>
-                            <input type="text" name="alamat" class="form-control" id="job">
-                            <span class="help-block"></span>
-                        </div>
-						<div class="form-group">
-                            <label>No.Telp</label>
-                            <input type="text" name="notelp" class="form-control" id="notelpn">
-                            <span class="help-block"></span>
-                        </div>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-                        <input type="submit" name="load_data" class="btn btn-default"value="Load Data">
-                    </form>
-                </div>
-            </div>        
-        </div>
-    </div>
-
-<div class="container">
-    <h1 class="page-header text-center"> DAFTAR PELANGGAN PULSA </h1>
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-
-                <?php
-                if (isset($_POST['load_data'])) {
-        try {
-            $sql_select = "SELECT * FROM Registration";
-            $stmt = $conn->query($sql_select);
-            $registrants = $stmt->fetchAll(); 
-            if(count($registrants) > 0) {
-                echo "<h2>DAFTAR PELANGGAN PULSA</h2>";
-                echo "<table class="table table-bordered table-striped" style="margin-top:20px;">";
-                echo "<th>Nama</th>";
-                echo "<th>Email</th>";
-                echo "<th>Job</th>";
-                echo "<th>Date</th>";
-                foreach($registrants as $registrant) {
-                    echo "<tr><td>".$registrant['name']."</td>";
-                    echo "<td>".$registrant['email']."</td>";
-                    echo "<td>".$registrant['job']."</td>";
-                    echo "<td>".$registrant['date']."</td></tr>";
-                }
-                echo "</table>";
-            } else {
-                echo "<h3>No one is currently registered.</h3>";
-            }
-        } catch(Exception $e) {
-            echo " Failed conn: " . $e;
-        }
-    }
-                ?>
-</div>
-</div>
-</div>
+<html>
+ <head>
+ <Title>Registration Form</Title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+ <style type="text/css">
+ 	body { background-color: #fff; border-top: solid 10px #000;
+ 	    color: #333; font-size: .85em; margin: 20; padding: 20;
+ 	    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+ 	}
+ 	h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+ 	h1 { font-size: 2em; }
+ 	h2 { font-size: 1.75em; }
+ 	h3 { font-size: 1.2em; }
+ 	table { margin-top: 0.75em; }
+ 	th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+ 	td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+ </style>
+ </head>
+ <body>
+ <h1>Register here!</h1>
+  <a href="create.php" class="btn btn-success pull-right">Tambah Pembeli Baru</a>
+ <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+ <form method="post" action="index.php" enctype="multipart/form-data" >
+       Name  <input type="text" name="name" id="name"/></br></br>
+       Email <input type="text" name="email" id="email"/></br></br>
+       Job <input type="text" name="job" id="job"/></br></br>
+       <input type="submit" name="submit" value="Submit" />
+       <input type="submit" name="update" value="Update" />
+       <input type="submit" name="load_data" value="Load Data" />
+ </form>
  <?php
    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
@@ -115,6 +58,31 @@
             echo "Failed: " . $e;
         }
         echo "<h3>Your're registered!</h3>";
+    } else if (isset($_POST['load_data'])) {
+        try {
+            $sql_select = "SELECT * FROM Registration";
+            $stmt = $conn->query($sql_select);
+            $registrants = $stmt->fetchAll(); 
+            if(count($registrants) > 0) {
+                echo "<h2>People who are registered:</h2>";
+                echo "<table>";
+                echo "<tr><th>Name</th>";
+                echo "<th>Email</th>";
+                echo "<th>Job</th>";
+                echo "<th>Date</th></tr>";
+                foreach($registrants as $registrant) {
+                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<td>".$registrant['email']."</td>";
+                    echo "<td>".$registrant['job']."</td>";
+                    echo "<td>".$registrant['date']."</td></tr>";
+                }
+                echo "</table>";
+            } else {
+                echo "<h3>No one is currently registered.</h3>";
+            }
+        } catch(Exception $e) {
+            echo "Failed: " . $e;
+        }
     }
  ?>
  </body>
