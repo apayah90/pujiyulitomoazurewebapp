@@ -20,14 +20,42 @@
  <h1>Register here!</h1>
   <a href="create.php" class="btn btn-success pull-right">Tambah Pembeli Baru</a>
  <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
- <form method="post" action="index.php" enctype="multipart/form-data" >
-       Name  <input type="text" name="name" id="name"/></br></br>
-       Email <input type="text" name="email" id="email"/></br></br>
-       Job <input type="text" name="job" id="job"/></br></br>
-       <input type="submit" name="submit" value="Submit" />
-       <input type="submit" name="update" value="Update" />
-       <input type="submit" name="load_data" value="Load Data" />
- </form>
+   <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h2>Create Record</h2>
+                    </div>
+                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <form action="index.php" method="post">
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" name="name" class="form-control" id="name">
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" id="email">
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat</label>
+                            <input type="text" name="job" class="form-control" id="job">
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>No.Telp</label>
+                            <input type="text" name="notelp" class="form-control" id="notelpn">
+                            <span class="help-block"></span>
+                        </div>
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" name="load_data" class="btn btn-default"value="Load Data">
+                    </form>
+                </div>
+            </div>        
+        </div>
+    </div>
  <?php
    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
