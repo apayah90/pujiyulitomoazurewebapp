@@ -19,7 +19,7 @@
  <body>
  <h1>Register here!</h1>
   <a href="http://pujiyulitomowebapp.azurewebsites.net" class="btn btn-success pull-right">Tambah Pembeli Baru</a>
- <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+ <h3>Fill in your name and email address, then click <strong>Submit</strong> to register.</h3>
    <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -92,7 +92,7 @@
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
-                echo "<h2>DAFTAR PELANGGAN PULSA</h2>";
+                echo "<h2>Daftar Nama Customer</h2>";
                 echo "<table class='table table-bordered table-striped'>";
                 echo "<thead>";
                 echo "<tr><th>Nama</th>";
