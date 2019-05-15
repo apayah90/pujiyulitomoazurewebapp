@@ -92,9 +92,9 @@
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
-                echo "<h2>People who are registered:</h2>";
-                echo "<table>";
-                echo "<tr><th>Name</th>";
+                echo "DAFTAR PELANGGAN PULSA";
+                echo "<table class="table table-bordered table-striped">";
+                echo "<tr><th>Nama</th>";
                 echo "<th>Email</th>";
                 echo "<th>Job</th>";
                 echo "<th>Date</th></tr>";
@@ -109,7 +109,7 @@
                 echo "<h3>No one is currently registered.</h3>";
             }
         } catch(Exception $e) {
-            echo "Failed: " . $e;
+            echo " Failed conn: " . $e;
         }
     }
  ?>
