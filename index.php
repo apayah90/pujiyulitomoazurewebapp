@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
-                            <input type="text" name="alamat" class="form-control" value="job">
+                            <input type="text" name="alamat" class="form-control" id="job">
                             <span class="help-block"></span>
                         </div>
 						<div class="form-group">
@@ -42,31 +42,49 @@
                             <span class="help-block"></span>
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-                        <input type="submit" name="load_data" class="btn btn-default"value="Cancel">
+                        <input type="submit" name="load_data" class="btn btn-default"value="Load Data">
                     </form>
                 </div>
             </div>        
         </div>
     </div>
 
-	<div class="container">
-    <h1 class="page-header text-center">PHP CRUD Operation using PDO</h1>
+<div class="container">
+    <h1 class="page-header text-center"> DAFTAR PELANGGAN PULSA </h1>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <a href="#addnew" class="btn btn-primary" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span> New</a>
-            <table class="table table-bordered table-striped" style="margin-top:20px;">
-                <thead>
-                    <th>ID</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Address</th>
-                    <th>Action</th>
-                </thead>
-            </table>
-	    </div>
-		</div>
-	</div>
 
+                <?php
+                if (isset($_POST['load_data'])) {
+        try {
+            $sql_select = "SELECT * FROM Registration";
+            $stmt = $conn->query($sql_select);
+            $registrants = $stmt->fetchAll(); 
+            if(count($registrants) > 0) {
+                echo "<h2>DAFTAR PELANGGAN PULSA</h2>";
+                echo "<table class="table table-bordered table-striped" style="margin-top:20px;">";
+                echo "<th>Nama</th>";
+                echo "<th>Email</th>";
+                echo "<th>Job</th>";
+                echo "<th>Date</th>";
+                foreach($registrants as $registrant) {
+                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<td>".$registrant['email']."</td>";
+                    echo "<td>".$registrant['job']."</td>";
+                    echo "<td>".$registrant['date']."</td></tr>";
+                }
+                echo "</table>";
+            } else {
+                echo "<h3>No one is currently registered.</h3>";
+            }
+        } catch(Exception $e) {
+            echo " Failed conn: " . $e;
+        }
+    }
+                ?>
+</div>
+</div>
+</div>
  <?php
    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
@@ -97,31 +115,6 @@
             echo "Failed: " . $e;
         }
         echo "<h3>Your're registered!</h3>";
-    } else if (isset($_POST['load_data'])) {
-        try {
-            $sql_select = "SELECT * FROM Registration";
-            $stmt = $conn->query($sql_select);
-            $registrants = $stmt->fetchAll(); 
-            if(count($registrants) > 0) {
-                echo "<h2>People who are registered:</h2>";
-                echo "<table>";
-                echo "<tr><th>Name</th>";
-                echo "<th>Email</th>";
-                echo "<th>Job</th>";
-                echo "<th>Date</th></tr>";
-                foreach($registrants as $registrant) {
-                    echo "<tr><td>".$registrant['name']."</td>";
-                    echo "<td>".$registrant['email']."</td>";
-                    echo "<td>".$registrant['job']."</td>";
-                    echo "<td>".$registrant['date']."</td></tr>";
-                }
-                echo "</table>";
-            } else {
-                echo "<h3>No one is currently registered.</h3>";
-            }
-        } catch(Exception $e) {
-            echo " Failed conn: " . $e;
-        }
     }
  ?>
  </body>
