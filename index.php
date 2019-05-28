@@ -16,7 +16,7 @@ $nama = $jenis = $bahan = $langkah = "";
 $nama_err = $jenis_err = $bahan_err = $langkah_err = "";
  
 // Processing form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
+if (isset($_POST['submit']))
 {
     // Validate nama
     $input_name = trim($_POST["nama"]);
