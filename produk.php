@@ -1,10 +1,10 @@
  
  <?php
  	//This Config FIle 
- 	$host = "ASUS\SQLEXPRESS";
-    $user = "root";
-    $pass = "";
-    $db = "pujidatabase";
+ 	$host = "pujiyulitomowebappserver.database.windows.net";
+    $user = "apayah90";
+    $pass = "terserah90!";
+    $db = "pujiyulitomowebapp";
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -132,67 +132,6 @@
 	</div>
 	<!-- end: Wrapper  -->			
 
-  <?php
-   $host = "ASUS\SQLEXPRESS";
-    $user = "root";
-    $pass = "";
-    $db = "pujidatabase";
-    try {
-        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    } catch(Exception $e) {
-        echo "Failed: " . $e;
-    }
-    if (isset($_POST['submit'])) {
-        try {
-            $nama = $_POST['nama'];
-            $email = $_POST['email'];
-            $alamat = $_POST['alamat'];
-            $notelp = $_POST['notelp'];
-            // Insert data
-            $sql_insert = "INSERT INTO Customers (nama, email, alamat, notelp) 
-                        VALUES (?,?,?,?)";
-            $stmt = $conn->prepare($sql_insert);
-            $stmt->bindValue(1, $nama);
-            $stmt->bindValue(2, $email);
-            $stmt->bindValue(3, $alamat);
-            $stmt->bindValue(4, $notelp);
-            $stmt->execute();
-        } catch(Exception $e) {
-            echo "Failed: " . $e;
-        }
-        echo "<h3>Your're registered!</h3>";
-    } else if (isset($_POST['load_data'])) {
-        try {
-            $sql_select = "SELECT * FROM Customers";
-            $stmt = $conn->query($sql_select);
-            $registrants = $stmt->fetchAll(); 
-            if(count($registrants) > 0) {
-                echo "<h2>Daftar Nama Customer</h2>";
-                echo "<table class='table table-bordered table-striped'>";
-                echo "<thead>";
-                echo "<tr><th>Nama</th>";
-                echo "<th>Email</th>";
-                echo "<th>Alamat</th>";
-                echo "<th>Notelp</th></tr>";
-                echo "</thead>";
-                echo "<tbody>";
-                foreach($registrants as $registrant) {
-                    echo "<tr><td>".$registrant['nama']."</td>";
-                    echo "<td>".$registrant['email']."</td>";
-                    echo "<td>".$registrant['alamat']."</td>";
-                    echo "<td>".$registrant['notelp']."</td></tr>";
-                }
-                echo "</tbody>";
-                echo "</table>";
-            } else {
-                echo "<h3>No one is currently registered.</h3>";
-            }
-        } catch(Exception $e) {
-            echo " Failed conn: " . $e;
-        }
-    }
- ?>
 <!-- start: Java Script -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="js/jquery-1.8.2.js"></script>
