@@ -1,8 +1,3 @@
- 
-<?php require_once("conn.php");
-    if (!isset($_SESSION)) {
-        session_start();
-    } ?>
 
 <!DOCTYPE html>
 <html lang="en">
