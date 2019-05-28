@@ -56,6 +56,7 @@ if (isset($_POST['submit']))
  
 <!DOCTYPE html>
 <html lang="en">
+	<?php include "head.php";?>
 <head>
     <meta charset="UTF-8">
     <title>Create Record</title>
@@ -68,6 +69,26 @@ if (isset($_POST['submit']))
     </style>
 </head>
 <body>
+	
+		<?php include "header.php"; ?>
+	<!-- start: Page Title -->
+	<div id="page-title">
+
+		<div id="page-title-inner">
+
+			<!-- start: Container -->
+			<div class="container">
+
+				<h2>Menu Makanan Buka Puasa</h2>
+
+			</div>
+			<!-- end: Container  -->
+
+		</div>	
+
+	</div>
+	
+	<!-- Start Wrapper -->
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
