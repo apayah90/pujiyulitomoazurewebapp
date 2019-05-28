@@ -99,6 +99,7 @@ if (isset($_POST['submit']))
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
                         <a href="index.php" class="btn btn-default">Cancel</a>
+			<a href="produk.php" class="btn btn-default">Produk</a>
                     </form>
                 </div>
             </div>        
