@@ -62,6 +62,13 @@ if (isset($_POST['submit']))
     <title>Create Recipe</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 
+    <style type="text/css">
+        .wrapper{
+            width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+
 </head>
 <body>
 	
@@ -95,8 +102,10 @@ if (isset($_POST['submit']))
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Nama</label>
+				<div class="col-sm-3">
                             <input type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
                             <span class="help-block"><?php echo $nama_err;?></span>
+			    </div>
                         </div>
                         <div class="form-group">
                             <label>Jenis</label>
