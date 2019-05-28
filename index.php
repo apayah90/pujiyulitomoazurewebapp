@@ -59,14 +59,9 @@ if (isset($_POST['submit']))
 	<?php include "head.php";?>
 <head>
     <meta charset="UTF-8">
-    <title>Create Record</title>
+    <title>Create Recipe</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
-            margin: 0 auto;
-        }
-    </style>
+
 </head>
 <body>
 	
@@ -100,7 +95,7 @@ if (isset($_POST['submit']))
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Nama</label>
-                            <input type="text" name="nama" class="form-control" value="<?php echo $nama; ?>">
+                            <input type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
                             <span class="help-block"><?php echo $nama_err;?></span>
                         </div>
                         <div class="form-group">
@@ -110,7 +105,7 @@ if (isset($_POST['submit']))
                         </div>
                         <div class="form-group">
                             <label>Bahan</label>
-                            <input type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>">
+                            <input type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
                             <span class="help-block"><?php echo $bahan_err;?></span>
                         </div>
 			<div class="form-group">
