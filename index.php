@@ -102,10 +102,17 @@ if (isset($_POST['submit']))
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Nama</label>
-				<div class="col-sm-3">
-                            <input type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
+				
+                            <textarea type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
                             <span class="help-block"><?php echo $nama_err;?></span>
-			    </div>
+			    
+                        </div>
+			    <div class="form-group">
+                            <label>Keterangan</label>
+				
+                            <textarea type="text" name="ket" class="form-control" value=""></textarea>
+                            <span class="help-block"></span>
+			    
                         </div>
                         <div class="form-group">
                             <label>Jenis</label>
@@ -114,7 +121,7 @@ if (isset($_POST['submit']))
                         </div>
                         <div class="form-group">
                             <label>Bahan</label>
-                            <input type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
+                            <textarea type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
                             <span class="help-block"><?php echo $bahan_err;?></span>
                         </div>
 			<div class="form-group">
