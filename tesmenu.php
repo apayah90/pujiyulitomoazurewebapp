@@ -76,7 +76,7 @@ try {
 ?>
         		<div class="span4">
           			<div class="icons-box">
-                        <div class="title"><h3><?php echo $registrant['email'];?></h3></div>
+                        <div class="title"><h3>"Nama <?php echo $registrant['email'];?>"</h3></div>
                         <img src="" style="border: 2px solid grey; border-radius: 5px; width: 250px; height: 200px;"/>
 						<div><h3>Rp.</h3></div>
 					<!--	<p>
