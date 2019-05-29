@@ -108,13 +108,6 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                     <p>Please fill this form and submit to add recipe record to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-                        <div class="form-group">
-                            <label>Upload Gambar</label>
-                
-                            <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-                            <input type="submit" name="submit2" value="Upload">
-                
-                        </div>
 
                         <div class="form-group">
                             <label>Nama</label>
