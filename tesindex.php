@@ -137,7 +137,7 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                             <label>Keterangan</label>
                 
                             <textarea type="text" name="keterangan" class="form-control" value="<?php echo $keterangan; ?>"></textarea>
-                            <span class="help-block"></span>
+                            <span class="help-block"><?php echo $bahan_err;?></span>
                 
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
