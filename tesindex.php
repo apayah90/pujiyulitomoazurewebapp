@@ -118,14 +118,6 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                         </div>
                         
 
-
-                        <div class="form-group">
-                            <label>Keterangan</label>
-                
-                            <textarea type="text" name="keterangan" class="form-control" value="<?php echo $keterangan; ?>"></textarea>
-                            <span class="help-block"></span>
-                
-                        </div>
                         <div class="form-group">
                             <label>Jenis</label>
                             <textarea name="jenis" class="form-control"><?php echo $jenis; ?></textarea>
@@ -136,10 +128,17 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                             <textarea type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
                             <span class="help-block"><?php echo $bahan_err;?></span>
                         </div>
-            <div class="form-group">
+                        <div class="form-group">
                             <label>Langkah</label>
                             <textarea name="langkah" class="form-control"><?php echo $langkah; ?></textarea>
                             <span class="help-block"><?php echo $langkah_err;?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Keterangan</label>
+                
+                            <textarea type="text" name="keterangan" class="form-control" value="<?php echo $keterangan; ?>"></textarea>
+                            <span class="help-block"></span>
+                
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
                         <a href="index.php" class="btn btn-default">Cancel</a>
