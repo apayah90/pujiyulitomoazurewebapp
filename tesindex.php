@@ -114,7 +114,7 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                             <label>Upload Gambar</label>
                 
                             <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-                            <input type="submit" name="submit" value="Upload">
+                            <input type="submit" name="submit2" value="Upload">
                 
                         </div>
 
