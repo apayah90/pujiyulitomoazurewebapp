@@ -9,7 +9,7 @@ use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;AccountKey=l5SpvHYLpKnyEZgyGKA1vuMmmL18jAvZFxGBZPyPxcUB7s0e10yaqSDVauos596TmhjUYH4chpMGUxXvIpK1TA==;";
-$containerName = "init-container";
+$containerName = "blockblobsiuqbmh";
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 if (isset($_POST['submit'])) {
