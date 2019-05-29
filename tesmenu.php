@@ -48,22 +48,35 @@
             
       		<div class="row">
 			<?php
-			$sql_select = "SELECT * FROM Registration";
-			$stmt = $conn->query($sql_select);
+try {
+            $sql_select = "SELECT * FROM Registration";
+            $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
-
+                echo "<h2>People who are registered:</h2>";
+                echo "<table>";
+                echo "<tr><th>Name</th>";
+                echo "<th>Email</th>";
+                echo "<th>Job</th>";
+                echo "<th>Date</th></tr>";
                 foreach($registrants as $registrant) {
-                    echo "<tr><td>".$registrant['nama']."</td>";
-                    echo "<td>".$registrant['jenis']."</td>";
-                    echo "<td>".$registrant['bahan']."</td>";
-                    echo "<td>".$registrant['langkah']."</td></tr>";
+                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<td>".$registrant['email']."</td>";
+                    echo "<td>".$registrant['job']."</td>";
+                    echo "<td>".$registrant['date']."</td></tr>";
                 }
+                echo "</table>";
+            } else {
+                echo "<h3>No one is currently registered.</h3>";
+            }
+        } catch(Exception $e) {
+            echo "Failed: " . $e;
+        }
        
 ?>
         		<div class="span4">
           			<div class="icons-box">
-                        <div class="title"><h3><?php echo $registrant['nama']; ?></h3></div>
+                        <div class="title"><h3></h3></div>
                         <img src="" style="border: 2px solid grey; border-radius: 5px; width: 250px; height: 200px;"/>
 						<div><h3>Rp.</h3></div>
 					<!--	<p>
