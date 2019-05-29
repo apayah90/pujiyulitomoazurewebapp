@@ -41,19 +41,19 @@ if (isset($_POST['submit']))
             $bahan = $_POST['bahan'];
             $langkah = $_POST['langkah'];
             $keterangan = $_POST['keterangan'];
-            $keterangan = $_POST['gambar'];
+          
         //Prepare an insert statement
  
         // Insert data
-            $sql_insert = "INSERT INTO Resep (nama, jenis, bahan, langkah, keterangan, gambar) 
-                        VALUES (?,?,?,?,?,?)";
+            $sql_insert = "INSERT INTO Resep (nama, jenis, bahan, langkah, keterangan) 
+                        VALUES (?,?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindParam(1, $nama);
             $stmt->bindParam(2, $jenis);
             $stmt->bindParam(3, $bahan);
             $stmt->bindParam(4, $langkah);
             $stmt->bindParam(5, $keterangan);
-            $stmt->bindParam(6, $gambar);
+   
 
             $stmt->execute();
            
