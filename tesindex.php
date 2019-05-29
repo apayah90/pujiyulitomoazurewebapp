@@ -21,8 +21,8 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
  
 //This conn blob file
 
-    $connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;AccountKey=l5SpvHYLpKnyEZgyGKA1vuMmmL18jAvZFxGBZPyPxcUB7s0e10yaqSDVauos596TmhjUYH4chpMGUxXvIpK1TA==";
-    $containerName = "blobresep";
+    $connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;AccountKey=l5SpvHYLpKnyEZgyGKA1vuMmmL18jAvZFxGBZPyPxcUB7s0e10yaqSDVauos596TmhjUYH4chpMGUxXvIpK1TA==;";
+    $containerName = "init-container";
     // Create blob client.
     $blobClient = BlobRestProxy::createBlobService($connectionString);
  
