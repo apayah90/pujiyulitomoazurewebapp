@@ -11,7 +11,12 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 $containerName = "blockblobsiuqbmh";
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
-
+if (isset($_POST['submit2'])) {
+    $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+    // echo fread($content, filesize($fileToUpload));
+    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+}
 // This config file
    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
@@ -29,13 +34,6 @@ $blobClient = BlobRestProxy::createBlobService($connectionString);
 if (isset($_POST['submit']))
 {
        try {
-
-        $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
-    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
-    // echo fread($content, filesize($fileToUpload));
-    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-
-
 
 
             $nama = $_POST['nama'];
