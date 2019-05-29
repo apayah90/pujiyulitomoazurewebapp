@@ -19,16 +19,19 @@ if (isset($_POST['submit2'])) {
  
  echo "These are the blobs present in the container: ";
 
-        do{
-            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-            foreach ($result->getBlobs() as $blob)
-            {
-                echo $blob->getName().": ".$blob->getUrl()."<br />";
-            }
-        
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
-}
+do {
+					foreach ($result->getBlobs() as $blob)
+					{
+						?>
+						<tr>
+							<td><?php echo $blob->getName() ?></td>
+							<td><?php echo $blob->getUrl() ?></td>
+
+						</tr>
+						<?php
+					}
+					$listBlobsOptions->setContinuationToken($result->getContinuationToken());
+				} while($result->getContinuationToken());
 // This config file
    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
