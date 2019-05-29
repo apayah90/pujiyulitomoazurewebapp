@@ -54,7 +54,7 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                 <a class="nav-link" href="https://smart-parkir.azurewebsites.net/">Home</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="https://smart-parkir.azurewebsites.net/analyze.php">Analisis Kendaraan<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="https://smart-parkir.azurewebsites.net/tesindex.php">Analisis Kendaraan<span class="sr-only">(current)</span></a>
             </li>
         </div>
         </nav>
@@ -65,7 +65,7 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                 <span class="border-top my-3"></span>
             </div>
         <div class="mt-4 mb-2">
-            <form class="d-flex justify-content-lefr" action="analyze.php" method="post" enctype="multipart/form-data">
+            <form class="d-flex justify-content-lefr" action="tesindex.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
                 <input type="submit" name="submit" value="Upload">
             </form>
