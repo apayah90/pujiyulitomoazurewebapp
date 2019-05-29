@@ -7,7 +7,7 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
- $connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;AccountKey=l5SpvHYLpKnyEZgyGKA1vuMmmL18jAvZFxGBZPyPxcUB7s0e10yaqSDVauos596TmhjUYH4chpMGUxXvIpK1TA==;";
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;AccountKey=l5SpvHYLpKnyEZgyGKA1vuMmmL18jAvZFxGBZPyPxcUB7s0e10yaqSDVauos596TmhjUYH4chpMGUxXvIpK1TA==;";
 $containerName = "blockblobsiuqbmh";
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
@@ -16,6 +16,18 @@ if (isset($_POST['submit2'])) {
     $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
     // echo fread($content, filesize($fileToUpload));
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+ 
+ echo "These are the blobs present in the container: ";
+
+        do{
+            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+            foreach ($result->getBlobs() as $blob)
+            {
+                echo $blob->getName().": ".$blob->getUrl()."<br />";
+            }
+        
+            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+        } while($result->getContinuationToken());
 }
 // This config file
    $host = "pujiyulitomowebappserver.database.windows.net";
