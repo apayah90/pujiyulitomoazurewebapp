@@ -132,7 +132,7 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                         <div class="form-group">
                             <label>Upload Gambar</label>
                             <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-			    <input type="submit2" name="submit2" class="btn-btn primsry" value="Upload">
+			    <input type="submit" name="submit2" value="Upload">
                         </div>
                         <div class="form-group">
                             <label>Jenis</label>
