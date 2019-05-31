@@ -22,13 +22,14 @@ if (isset($_POST['submit']))
             $jenis = $_POST['jenis'];
             $bahan = $_POST['bahan'];
             $langkah = $_POST['langkah'];
+	    $keterangan = $_POST['keterangan'];
 
 
         //Prepare an insert statement
  
         // Insert data
-            $sql_insert = "INSERT INTO Resep (nama, jenis, bahan, langkah) 
-                        VALUES (?,?,?,?)";
+            $sql_insert = "INSERT INTO Resep (nama, jenis, bahan, langkah, keterangan) 
+                        VALUES (?,?,?,?,?)";
 
 
             $stmt = $conn->prepare($sql_insert);
@@ -36,6 +37,7 @@ if (isset($_POST['submit']))
             $stmt->bindParam(2, $jenis);
             $stmt->bindParam(3, $bahan);
             $stmt->bindParam(4, $langkah);
+	    $stmt->bindParam(5, $keterangan);
 
             $stmt->execute();
 
@@ -100,13 +102,22 @@ if (isset($_POST['submit']))
                     </div>
                     <p>Please fill this form and submit to add recipe record to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="form-group">
+                        
+			<div class="form-group">
+                            <label>Upload Gambar</label>
+                            <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
+                            <input type="submit" name="submit2" value="Upload">
+                        </div>
+
+			    
+			<div class="form-group">
                             <label>Nama</label>
 				
                             <textarea type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
                             <span class="help-block"><?php echo $nama_err;?></span>
 			    
                         </div>
+			    
 			    <div class="form-group">
                             <label>Keterangan</label>
 				
@@ -130,8 +141,7 @@ if (isset($_POST['submit']))
                             <span class="help-block"><?php echo $langkah_err;?></span>
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-default">Cancel</a>
-			<a href="menu.php" class="btn btn-default">Produk</a>
+                        <a href="menu.php" class="btn btn-default">Produk</a>
                     </form>
                 </div>
             </div>        
