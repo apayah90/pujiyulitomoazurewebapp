@@ -1,58 +1,4 @@
-<?php
-// This config file
-   $host = "pujiyulitomowebappserver.database.windows.net";
-    $user = "apayah90";
-    $pass = "terserah90!";
-    $db = "pujiyulitomowebapp";
-    try {
-        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    } catch(Exception $e) {
-        echo "Failed: " . $e;
-    }
- 
 
- 
-// Processing form data when form is submitted
-if (isset($_POST['submit']))
-{
-
-       try {
-            $nama = $_POST['nama'];
-            $jenis = $_POST['jenis'];
-            $bahan = $_POST['bahan'];
-            $langkah = $_POST['langkah'];
-	    $keterangan = $_POST['keterangan'];
-
-
-        //Prepare an insert statement
- 
-        // Insert data
-            $sql_insert = "INSERT INTO Resep (nama, jenis, bahan, langkah, keterangan) 
-                        VALUES (?,?,?,?,?)";
-
-
-            $stmt = $conn->prepare($sql_insert);
-            $stmt->bindParam(1, $nama);
-            $stmt->bindParam(2, $jenis);
-            $stmt->bindParam(3, $bahan);
-            $stmt->bindParam(4, $langkah);
-	    $stmt->bindParam(5, $keterangan);
-
-            $stmt->execute();
-
-           
-       } catch (Exception $e) {
-           echo "Failed". $e;
-       }
-        echo "<h3>Your're registered!</h3>";
-
-    
-    
-
-   
-}
-?>
 
 
  
@@ -147,5 +93,60 @@ if (isset($_POST['submit']))
             </div>        
         </div>
     </div>
+	<?php
+// This config file
+   $host = "pujiyulitomowebappserver.database.windows.net";
+    $user = "apayah90";
+    $pass = "terserah90!";
+    $db = "pujiyulitomowebapp";
+    try {
+        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
+        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    } catch(Exception $e) {
+        echo "Failed: " . $e;
+    }
+ 
+
+ 
+// Processing form data when form is submitted
+if (isset($_POST['submit']))
+{
+
+       try {
+            $nama = $_POST['nama'];
+            $jenis = $_POST['jenis'];
+            $bahan = $_POST['bahan'];
+            $langkah = $_POST['langkah'];
+	    $keterangan = $_POST['keterangan'];
+
+
+        //Prepare an insert statement
+ 
+        // Insert data
+            $sql_insert = "INSERT INTO Resep (nama, jenis, bahan, langkah, keterangan) 
+                        VALUES (?,?,?,?,?)";
+
+
+            $stmt = $conn->prepare($sql_insert);
+            $stmt->bindParam(1, $nama);
+            $stmt->bindParam(2, $jenis);
+            $stmt->bindParam(3, $bahan);
+            $stmt->bindParam(4, $langkah);
+	    $stmt->bindParam(5, $keterangan);
+
+            $stmt->execute();
+
+           
+       } catch (Exception $e) {
+           echo "Failed". $e;
+       }
+        echo "<h3>Your're registered!</h3>";
+
+    
+    
+
+   
+}
+?>
 </body>
 </html>
