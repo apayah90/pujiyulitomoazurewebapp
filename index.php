@@ -168,7 +168,7 @@ if (isset($_POST['submit']))
    
 }
 	
-if (isset($_POST['submit2'])) {
+else if (isset($_POST['submit2'])) {
     $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
     $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
     
