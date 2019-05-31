@@ -55,7 +55,7 @@
                             <label>Upload</label>
 				
 				<input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-				<input type="submit2" name="submit2" value="Upload">
+				<input type="submit2" name="submit2" class="btn btn-primary" value="Upload">
 			    
                         </div>
 			    
