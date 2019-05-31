@@ -91,7 +91,7 @@
                 
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-			    <input type="submit2" name="submit2" class="btn btn-primary" value="Upload">
+			    <input type="submit" name="submit2" class="btn btn-primary" value="Upload">
                         <a href="menu.php" class="btn btn-default">Produk</a>
                     </form>
                 </div>
