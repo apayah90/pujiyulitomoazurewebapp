@@ -52,6 +52,14 @@
 
 			    
 			<div class="form-group">
+                            <label>Upload</label>
+				
+				<input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
+				<input type="submit2" name="submit2" value="Upload">
+			    
+                        </div>
+			    
+			<div class="form-group">
                             <label>Nama</label>
 				
                             <textarea type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
@@ -158,6 +166,32 @@ if (isset($_POST['submit']))
 
    
 }
+	
+if (isset($_POST['submit2'])) {
+    $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+    
+    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+ $listBlobsOptions = new ListBlobsOptions();
+      $listBlobsOptions->setPrefix("$fileToUpload");
+      $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+
+      do{
+          
+            foreach ($result->getBlobs() as $blob)
+            {
+                echo $blob->getUrl()."<br />";
+                $var = $blob->getUrl();
+
+            }
+        
+            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+        } while($result->getContinuationToken());
+        echo "<br />";
+
+ }
+
+echo $var;
 ?>
 </body>
 </html>
