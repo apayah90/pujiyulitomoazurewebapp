@@ -52,7 +52,7 @@
 			<div class="form-group">
                             <label>Upload Gambar</label>
                             <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-                            <input type="submit" name="submit2" value="Upload">
+                          
                         </div>
 
 			    
