@@ -49,18 +49,7 @@
                     <p>Please fill this form and submit to add recipe record to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         
-			<div class="form-group">
-                            <label>Upload Gambar</label>
-                            <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-                          
-                        </div>
-			<div class="form-group">
-                            <label>Url gambar</label>
-				
-                            <textarea type="text" name="nama" class="form-control" value="<?php echo $var; ?>"> readonly</textarea>
-                            <span class="help-block"><?php echo $nama_err;?></span>
-			    
-                        </div>
+
 			    
 			<div class="form-group">
                             <label>Nama</label>
@@ -131,27 +120,7 @@ $blobClient = BlobRestProxy::createBlobService($connectionString);
 // Processing form data when form is submitted
 if (isset($_POST['submit']))
 {
-//Upload
-	    $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
-    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
-    
-    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
- $listBlobsOptions = new ListBlobsOptions();
-      $listBlobsOptions->setPrefix("$fileToUpload");
-      $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 
-      do{
-          
-            foreach ($result->getBlobs() as $blob)
-            {
-                echo $blob->getUrl()."<br />";
-                $var = $blob->getUrl();
-
-            }
-        
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
-        echo "<br />";
 	//sql
        try {
             $nama = $_POST['nama'];
