@@ -34,10 +34,10 @@ if (isset($_POST['submit'])) {
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
         } while($result->getContinuationToken());
         echo "<br />";
-
+echo $var;
  }
 
-echo $var;
+
 
 
      
