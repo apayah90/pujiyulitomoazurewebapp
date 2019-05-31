@@ -54,7 +54,13 @@
                             <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
                           
                         </div>
-
+			<div class="form-group">
+                            <label>Url gambar</label>
+				
+                            <textarea type="text" name="nama" class="form-control" value="<?php echo $var; ?>"> readonly</textarea>
+                            <span class="help-block"><?php echo $nama_err;?></span>
+			    
+                        </div>
 			    
 			<div class="form-group">
                             <label>Nama</label>
@@ -67,7 +73,7 @@
 			    <div class="form-group">
                             <label>Keterangan</label>
 				
-                            <textarea type="text" name="ket" class="form-control" value=""></textarea>
+                            <textarea type="text" name="keterangan" class="form-control" value="<?php echo $keterangan?>"></textarea>
                             <span class="help-block"></span>
 			    
                         </div>
