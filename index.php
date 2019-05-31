@@ -94,6 +94,20 @@
         </div>
     </div>
 	<?php
+	
+	require_once 'vendor/autoload.php';
+	
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
+use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
+use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
+use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
+	
+//config blob
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;AccountKey=l5SpvHYLpKnyEZgyGKA1vuMmmL18jAvZFxGBZPyPxcUB7s0e10yaqSDVauos596TmhjUYH4chpMGUxXvIpK1TA==;";
+$containerName = "blockblobsiuqbmh";
+// Create blob client.
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 // This config file
    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
@@ -111,7 +125,28 @@
 // Processing form data when form is submitted
 if (isset($_POST['submit']))
 {
+//Upload
+	    $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+    
+    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+ $listBlobsOptions = new ListBlobsOptions();
+      $listBlobsOptions->setPrefix("$fileToUpload");
+      $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 
+      do{
+          
+            foreach ($result->getBlobs() as $blob)
+            {
+                echo $blob->getUrl()."<br />";
+                $var = $blob->getUrl();
+
+            }
+        
+            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+        } while($result->getContinuationToken());
+        echo "<br />";
+	//sql
        try {
             $nama = $_POST['nama'];
             $jenis = $_POST['jenis'];
