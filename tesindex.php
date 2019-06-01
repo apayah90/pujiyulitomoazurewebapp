@@ -47,18 +47,21 @@
                         <h2>Create Record</h2>
                     </div>
                     <p>Please fill this form and submit to add recipe record to the database.</p>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            
                         
-
+<form class="d-flex justify-content-lefr" action="analyze.php" method="post" enctype="multipart/form-data">
                 
             <div class="form-group">
                             <label>Upload</label>
                 
-                <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
+                <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""> 
+                <input type="submit" name="submit2" value="Upload Gambar">
             
                 
                         </div>
-                
+
+                    </form>
+                       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
             <div class="form-group">
                             <label>Nama</label>
                 
@@ -91,7 +94,7 @@
                 
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-                <input type="submit" name="submit2" class="btn btn-primary" value="Upload">
+              
                         <a href="menu.php" class="btn btn-default">Produk</a>
                     </form>
                 </div>
