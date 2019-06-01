@@ -54,7 +54,7 @@ if (isset($_POST['submit']))
     //sql
        try {
             $nama = $_POST['nama'];
-            $jenis = $_POST['gambar'];
+            $gambar = $_POST['gambar'];
             $bahan = $_POST['bahan'];
             $langkah = $_POST['langkah'];
         $keterangan = $_POST['keterangan'];
