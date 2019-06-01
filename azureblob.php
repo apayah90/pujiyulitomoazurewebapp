@@ -28,25 +28,26 @@ $containerName = "blockblobsiuqbmh";
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 if (isset($_POST['submit2'])) {
-  $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+    $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
     $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
     
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
  $listBlobsOptions = new ListBlobsOptions();
       $listBlobsOptions->setPrefix("$fileToUpload");
       $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+
       do{
           
             foreach ($result->getBlobs() as $blob)
             {
-                echo $blob->getUrl()."<br />";
+          
                 $var = $blob->getUrl();
+
             }
         
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
         } while($result->getContinuationToken());
-        echo "<br />";
-echo $var;
+
     }
 
 elseif (isset($_POST['submit'])) {
@@ -129,7 +130,7 @@ elseif (isset($_POST['submit'])) {
             <!-- start: Container -->
             <div class="container">
 
-                <h2>Menu Makanan Buka Puasa Update</h2>
+                <h2>Menu Makanan Buka Puasa</h2>
 
             </div>
             <!-- end: Container  -->
@@ -147,18 +148,13 @@ elseif (isset($_POST['submit'])) {
                         <h2>Tulis Resep</h2>
                     </div>
                     <p>Please fill this form and submit to add recipe record to the database.</p>
-                    <form class="d-flex justify-content-lefr" action="blobazure.php" method="post" enctype="multipart/form-data">
 
-                <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-                <input type="submit" name="submit2" value="Upload">
-                
-                    </form>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">    
             <div class="form-group">
                             
                         <div class="form-group">
                             <label>Url</label>
-                            <textarea name="jenis" class="form-control" checked readonly><?php echo $gambar; ?><?php echo $var;?></textarea>
+                            <textarea name="jenis" class="form-control" checked readonly><?php echo $gambar; ?></textarea>
                       
                         </div>
                             
