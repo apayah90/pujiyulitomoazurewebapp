@@ -72,7 +72,7 @@
              
                             <label>Url Gambar 2</label>
 
-                <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>"><?php echo $var; ?></textarea>
+                <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>">"<?php echo $var; ?>"</textarea>
                         </div>
             <div class="form-group">
              
@@ -211,6 +211,7 @@ if (isset($_POST['submit2'])) {
             {
                
                 $var = $blob->getUrl();
+             echo $var;
             }
         
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
