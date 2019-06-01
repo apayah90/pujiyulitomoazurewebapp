@@ -62,9 +62,8 @@
  <div class="form-group">
 
          <label>Url gambar 1</label>
-             <textarea type="text" name="gambar" class="form-control" value="<?php echo $var;?>" checked readonly></textarea>   
- </div>
-               
+             <textarea type="text" name="gambar" class="form-control" value="<?php echo $var;?>" checked readonly><?php echo $var; ?></textarea>   
+ </div>        
                     </form>
                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
                         
