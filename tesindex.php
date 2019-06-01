@@ -19,105 +19,9 @@
 
 </head>
 <body>
+<?php
     
-        <?php include "header.php"; ?>
-    <!-- start: Page Title -->
-    <div id="page-title">
-
-        <div id="page-title-inner">
-
-            <!-- start: Container -->
-            <div class="container">
-
-                <h2>Menu Makanan Buka Puasa</h2>
-
-            </div>
-            <!-- end: Container  -->
-
-        </div>  
-
-    </div>
-    
-    <!-- Start Wrapper -->
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h2>Create Record</h2>
-                    </div>
-                    <p>Please fill this form and submit to add recipe record to the database.</p>
-            
-                        
-<form class="d-flex justify-content-lefr" action="tesindex.php" method="post" enctype="multipart/form-data">
-                
-            <div class="form-group">
-                            <label>Upload</label>
-                                  <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""> 
-                <input type="submit" name="submit2" value="Upload Gambar">
-              
-                
-                        </div>
- 
- <div class="form-group">
-
-         <label>Url gambar 1</label>
-             <textarea type="text" name="gambar" class="form-control" value="<?php echo $var;?>" checked readonly><?php echo $var; ?></textarea>   
- </div>        
-                    </form>
-                       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-                        
-                         <div class="form-group">
-             
-             
-                            <label>Url Gambar 2</label>
-
-                <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>">"<?php echo $var; ?>"</textarea>
-                        </div>
-            <div class="form-group">
-             
-             
-                            <label>Nama</label>
-                
-                            
-                            <span class="help-block"><?php echo $nama_err;?></span>
-                
-                        </div>
-                
-                        <div class="form-group">
-                            <label>Jenis</label>
-                            <textarea name="jenis" class="form-control"><?php echo $jenis; ?></textarea>
-                            <span class="help-block"><?php echo $jenis_err;?></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Bahan</label>
-                            <textarea type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
-                            <span class="help-block"><?php echo $bahan_err;?></span>
-                        </div>
-            <div class="form-group">
-                            <label>Langkah</label>
-                            <textarea name="langkah" class="form-control"><?php echo $langkah; ?></textarea>
-                            <span class="help-block"><?php echo $langkah_err;?></span>
-                        </div>
-                
-             <div class="form-group">
-                            <label>Keterangan</label>
-                
-                            <textarea type="text" name="keterangan" class="form-control" value="<?php echo $keterangan; ?>"></textarea>
-                            <span class="help-block"><?php echo $bahan_err;?></span>
-                
-                        </div>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-              
-                        <a href="menu.php" class="btn btn-default">Produk</a>
-                    </form>
-                </div>
-            </div>        
-        </div>
-    </div>
-    <?php
-    
-    require_once 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
     
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
@@ -126,7 +30,7 @@ use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
     
 // This config file
-   $host = "pujiyulitomowebappserver.database.windows.net";
+    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
     $pass = "terserah90!";
     $db = "pujiyulitomowebapp";
@@ -139,9 +43,9 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
  
  //blob
     $connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;AccountKey=l5SpvHYLpKnyEZgyGKA1vuMmmL18jAvZFxGBZPyPxcUB7s0e10yaqSDVauos596TmhjUYH4chpMGUxXvIpK1TA==;";
-$containerName = "blockblobsiuqbmh";
+    $containerName = "blockblobsiuqbmh";
 // Create blob client.
-$blobClient = BlobRestProxy::createBlobService($connectionString);
+    $blobClient = BlobRestProxy::createBlobService($connectionString);
  
 // Processing form data when form is submitted
 if (isset($_POST['submit']))
@@ -211,7 +115,7 @@ if (isset($_POST['submit2'])) {
             {
                
                 $var = $blob->getUrl();
-             echo $var;
+            
             }
         
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
@@ -220,14 +124,103 @@ if (isset($_POST['submit2'])) {
  }
 
 ?>
-  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
+
+        <?php include "header.php"; ?>
+    <!-- start: Page Title -->
+    <div id="page-title">
+
+        <div id="page-title-inner">
+
+            <!-- start: Container -->
+            <div class="container">
+
+                <h2>Menu Makanan Buka Puasa</h2>
+
+            </div>
+            <!-- end: Container  -->
+
+        </div>  
+
+    </div>
+    
+    <!-- Start Wrapper -->
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h2>Create Record</h2>
+                    </div>
+                    <p>Please fill this form and submit to add recipe record to the database.</p>
+            
+                        
+                    <form class="d-flex justify-content-lefr" action="tesindex.php" method="post" enctype="multipart/form-data">
+                
+                        <div class="form-group">
+                            <label>Upload</label>
+                            <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""> 
+                            <input type="submit" name="submit2" value="Upload Gambar">
+              
+                
+                        </div>
+ 
+                    <div class="form-group">
+
+                        <label>Url gambar</label>
+                        <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar;?>" checked readonly><?php echo $var; ?></textarea>   
+                    </div>        
+                    </form>
+
+                       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
                         
                          <div class="form-group">
              
              
                             <label>Url Gambar 2</label>
 
-                <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>"><?php echo $var; ?></textarea>
+                <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>">"<?php echo $var; ?>"</textarea>
                         </div>
+                        <div class="form-group">
+             
+             
+                            <label>Nama</label>
+                
+                            
+                            <span class="help-block"><?php echo $nama_err;?></span>
+                
+                        </div>
+                
+                        <div class="form-group">
+                            <label>Jenis</label>
+                            <textarea name="jenis" class="form-control"><?php echo $jenis; ?></textarea>
+                            <span class="help-block"><?php echo $jenis_err;?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Bahan</label>
+                            <textarea type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
+                            <span class="help-block"><?php echo $bahan_err;?></span>
+                        </div>
+            <div class="form-group">
+                            <label>Langkah</label>
+                            <textarea name="langkah" class="form-control"><?php echo $langkah; ?></textarea>
+                            <span class="help-block"><?php echo $langkah_err;?></span>
+                        </div>
+                
+             <div class="form-group">
+                            <label>Keterangan</label>
+                
+                            <textarea type="text" name="keterangan" class="form-control" value="<?php echo $keterangan; ?>"></textarea>
+                            <span class="help-block"><?php echo $bahan_err;?></span>
+                
+                        </div>
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+              
+                        <a href="menu.php" class="btn btn-default">Produk</a>
+                    </form>
+                </div>
+            </div>        
+        </div>
+    </div>
+
 </body>
 </html>
