@@ -62,7 +62,7 @@ if (isset($_POST['submit']))
           
             foreach ($result->getBlobs() as $blob)
             {
-                echo $blob->getUrl()."<br />";
+           
                 $var = $blob->getUrl();
             }
         
@@ -73,18 +73,18 @@ if (isset($_POST['submit']))
     //sql
        try {
             $nama = $_POST['nama'];
-            $jenis = $_POST['jenis'];
+            $jenis = $_POST['gambar'];
             $bahan = $_POST['bahan'];
             $langkah = $_POST['langkah'];
         $keterangan = $_POST['keterangan'];
         //Prepare an insert statement
  
         // Insert data
-            $sql_insert = "INSERT INTO Resep (nama, jenis, bahan, langkah, keterangan) 
+            $sql_insert = "INSERT INTO Resep (nama, gambar, bahan, langkah, keterangan) 
                         VALUES (?,?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindParam(1, $nama);
-            $stmt->bindParam(2, $jenis);
+            $stmt->bindParam(2, $gambar);
             $stmt->bindParam(3, $bahan);
             $stmt->bindParam(4, $langkah);
         $stmt->bindParam(5, $keterangan);
@@ -94,9 +94,6 @@ if (isset($_POST['submit']))
            echo "Failed". $e;
        }
         echo "<h3>Your're registered!</h3>";
-        echo $var;
-    
-    
    
 }
 //Upload blob   
@@ -125,7 +122,7 @@ if (isset($_POST['submit2'])) {
 
 ?>
 
-        <?php include "header.php"; ?>
+    <?php include "header.php"; ?>
     <!-- start: Page Title -->
     <div id="page-title">
 
@@ -172,29 +169,14 @@ if (isset($_POST['submit2'])) {
                     </form>
 
                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-                        
-                         <div class="form-group">
-             
-             
-                            <label>Url Gambar 2</label>
-
-                <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>">"<?php echo $var; ?>"</textarea>
-                        </div>
+  
                         <div class="form-group">
-             
              
                             <label>Nama</label>
-                
-                            
-                            <span class="help-block"><?php echo $nama_err;?></span>
+                              <textarea type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
                 
                         </div>
-                
-                        <div class="form-group">
-                            <label>Jenis</label>
-                            <textarea name="jenis" class="form-control"><?php echo $jenis; ?></textarea>
-                            <span class="help-block"><?php echo $jenis_err;?></span>
-                        </div>
+
                         <div class="form-group">
                             <label>Bahan</label>
                             <textarea type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
