@@ -50,30 +50,11 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 // Processing form data when form is submitted
 if (isset($_POST['submit']))
 {
-        $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
-    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
-    
-    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
- $listBlobsOptions = new ListBlobsOptions();
-      $listBlobsOptions->setPrefix("$fileToUpload");
-      $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-      do{
-          
-            foreach ($result->getBlobs() as $blob)
-            {
-               
-                $var = $blob->getUrl();
-            
-            }
-        
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
-        echo "<br />";
- echo $var;
+
     //sql
        try {
             $nama = $_POST['nama'];
-            $gambar = $var;
+            $gambar = $_POST['gambar'];
             $bahan = $_POST['bahan'];
             $langkah = $_POST['langkah'];
         $keterangan = $_POST['keterangan'];
@@ -94,12 +75,30 @@ if (isset($_POST['submit']))
            echo "Failed". $e;
        }
         echo "<h3>Your're registered!</h3>";
-   echo $var;
+
 }
 //Upload blob   
 
 if (isset($_POST['submit2'])) {
-
+        $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+    
+    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+ $listBlobsOptions = new ListBlobsOptions();
+      $listBlobsOptions->setPrefix("$fileToUpload");
+      $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+      do{
+          
+            foreach ($result->getBlobs() as $blob)
+            {
+               
+                $var = $blob->getUrl();
+            
+            }
+        
+            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+        } while($result->getContinuationToken());
+        echo "<br />";
  }
 
 ?>
