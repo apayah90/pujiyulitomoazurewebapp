@@ -129,7 +129,7 @@ elseif (isset($_POST['submit'])) {
             <!-- start: Container -->
             <div class="container">
 
-                <h2>Menu Makanan Buka Puasa</h2>
+                <h2>Menu Makanan Buka Puasa Update</h2>
 
             </div>
             <!-- end: Container  -->
@@ -203,23 +203,3 @@ elseif (isset($_POST['submit'])) {
     </div>
 </body>
 </html>
- 
-<!DOCTYPE html>
-<html lang="en">
-    <?php include "head.php";?>
-<head>
-    <meta charset="UTF-8">
-    <title>Create Recipe</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
-            margin: 0 auto;
-        }
-    </style>
-
-</head>
-<body>
-
-
