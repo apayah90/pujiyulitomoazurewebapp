@@ -53,16 +53,23 @@
                 
             <div class="form-group">
                             <label>Upload</label>
-                
-                <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""> 
+                                  <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""> 
                 <input type="submit" name="submit2" value="Upload Gambar">
-            
+              
                 
                         </div>
+ 
+ <div class="form-group">
 
+         <label>Url gambar</label>
+             <textarea type="text" name="nama" class="form-control" value="" checked readonly>"<?php echo $var;?>"></textarea>   
+ </div>
+               
                     </form>
                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
             <div class="form-group">
+             
+             
                             <label>Nama</label>
                 
                             <textarea type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
@@ -195,7 +202,7 @@ if (isset($_POST['submit2'])) {
           
             foreach ($result->getBlobs() as $blob)
             {
-                echo $blob->getUrl()."<br />";
+               
                 $var = $blob->getUrl();
             }
         
@@ -203,7 +210,7 @@ if (isset($_POST['submit2'])) {
         } while($result->getContinuationToken());
         echo "<br />";
  }
-echo $var;
+
 ?>
 </body>
 </html>
