@@ -49,7 +49,7 @@
                     <p>Please fill this form and submit to add recipe record to the database.</p>
             
                         
-<form class="d-flex justify-content-lefr" action="analyze.php" method="post" enctype="multipart/form-data">
+<form class="d-flex justify-content-lefr" action="tesindex.php" method="post" enctype="multipart/form-data">
                 
             <div class="form-group">
                             <label>Upload</label>
