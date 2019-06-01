@@ -62,7 +62,7 @@
  <div class="form-group">
 
          <label>Url gambar</label>
-             <textarea type="text" name="nama" class="form-control" value="" checked readonly>"<?php echo $var;?>"></textarea>   
+             <textarea type="text" name="nama" class="form-control" value="" checked readonly>"<?php echo $var;?>"</textarea>   
  </div>
                
                     </form>
