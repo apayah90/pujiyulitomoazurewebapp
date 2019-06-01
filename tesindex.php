@@ -142,15 +142,15 @@ if (isset($_POST['submit2'])) {
                 
                         </div>
  
-                    <div class="form-group">
-
-                        <label>Url gambar</label>
-                        <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar;?>" checked readonly><?php echo $var; ?></textarea>   
-                    </div>        
+     
                     </form>
 
                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-  
+                      <div class="form-group">
+
+                        <label>Url gambar</label>
+                        <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>" checked readonly><?php echo $var; ?></textarea>   
+                    </div>   
                         <div class="form-group">
              
                             <label>Nama</label>
