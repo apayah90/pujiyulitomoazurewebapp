@@ -67,6 +67,16 @@
                
                     </form>
                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
+                        
+                         <div class="form-group">
+             
+             
+                            <label>Url Gambar 2</label>
+                
+                            <textarea type="text" name="gbr" class="form-control" value="<?php echo $nama; ?>"><?php echo $nama; ?>
+                          </textarea>
+                
+                        </div>
             <div class="form-group">
              
              
