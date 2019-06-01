@@ -62,7 +62,7 @@
  <div class="form-group">
 
          <label>Url gambar</label>
-             <textarea type="text" name="nama" class="form-control" value="" checked readonly>"<?php echo $var;?>"</textarea>   
+             <textarea type="text" name="nama" class="form-control" value="" checked readonly><?php echo $var;?></textarea>   
  </div>
                
                     </form>
@@ -72,17 +72,15 @@
              
              
                             <label>Url Gambar 2</label>
-                
-                            <textarea type="text" name="gbr" class="form-control" value="<?php echo $nama; ?>"><?php echo $nama; ?>
-                          </textarea>
-                
+
+                <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>"><?php echo $var; ?></textarea>
                         </div>
             <div class="form-group">
              
              
                             <label>Nama</label>
                 
-                            <textarea type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
+                            
                             <span class="help-block"><?php echo $nama_err;?></span>
                 
                         </div>
