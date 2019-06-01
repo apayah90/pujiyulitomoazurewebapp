@@ -54,7 +54,7 @@ if (isset($_POST['submit']))
     //sql
        try {
             $nama = $_POST['nama'];
-            $gambar = $_POST['gambar'];
+            $gambar = $var;
             $bahan = $_POST['bahan'];
             $langkah = $_POST['langkah'];
         $keterangan = $_POST['keterangan'];
@@ -75,7 +75,7 @@ if (isset($_POST['submit']))
            echo "Failed". $e;
        }
         echo "<h3>Your're registered!</h3>";
-   
+   echo $var;
 }
 //Upload blob   
 
