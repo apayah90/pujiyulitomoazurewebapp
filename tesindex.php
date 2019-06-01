@@ -220,5 +220,14 @@ if (isset($_POST['submit2'])) {
  }
 
 ?>
+  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
+                        
+                         <div class="form-group">
+             
+             
+                            <label>Url Gambar 2</label>
+
+                <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>"><?php echo $var; ?></textarea>
+                        </div>
 </body>
 </html>
