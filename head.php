@@ -1,9 +1,7 @@
 <head>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Warung Nasi Online Ibu Nana</title> 
-	<meta name="description" content="Warung Sunda Ibu Nana | Makanan khas sunda yang ada di cikarang"/>
-	<meta name="keywords" content="Warung, Makan, Sunda, Halal, Enak, Nikmat, Bersih, Terjamin" />
+	<title>Resep Masakan Buka Puasa</title> 
 	<!-- end: Meta -->
 	
 	<!-- start: Mobile Specific -->
@@ -22,10 +20,10 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Droid+Serif">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Boogaloo">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Economica:700,400italic">
 	<!-- end: CSS -->
  <style type="text/css">
     .konten
