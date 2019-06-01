@@ -27,30 +27,7 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;Ac
 $containerName = "blockblobsiuqbmh";
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
-if (isset($_POST['submit2'])) {
-    $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
-    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
-    
-    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
- $listBlobsOptions = new ListBlobsOptions();
-      $listBlobsOptions->setPrefix("$fileToUpload");
-      $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-
-      do{
-          
-            foreach ($result->getBlobs() as $blob)
-            {
-          
-                $var = $blob->getUrl();
-
-            }
-        
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
-
-    }
-
-elseif (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     
     //sql
        try {
