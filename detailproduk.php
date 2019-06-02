@@ -43,17 +43,16 @@
       		<div class="row">
             <div class="col-sm-6">
                     <?php
-                    /* $sql_select = "SELECT * FROM Resep WHERE kode = '$_GET[kd]'";
+                     $sql_select = "SELECT * FROM Resep WHERE kode = '$_GET[kd]'";
                     $stmt = $conn->query($sql_select);
                     $data = $stmt->fetchAll();                  
-*/
 						?>
         		<!--<div class="span4">-->
           			<!--<div class="icons-box">-->
                     <div class="hero-unit"  style="margin-left: 200px;">
                     <table>
                     <tr>
-                        <td rowspan="7"><img src="admin/<?php echo $data['gambar']; ?>" style="border: 2px solid grey; border-radius: 5px;" width="751" height="532" /></td>
+                        <td rowspan="7"><img src="<?php echo $data['gambar']; ?>" style="border: 2px solid grey; border-radius: 5px;" width="751" height="532" /></td>
                         </tr>
 
                         <!--<tr>
