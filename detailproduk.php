@@ -128,7 +128,7 @@
          
                         </tr>
                         <tr>
-                        <td colspan="4"><div class="title"><h2>"Nama"<br><br></h2></div></td>
+                        <td colspan="4"><div class="title"><h2><?php echo $data ["nama"]; ?><br><br></h2></div></td>
                         </tr>
                         <tr>
                         <td></td>
@@ -154,7 +154,8 @@
                         <td><h3>:</h3></td>
                         <td><div><h3><?php echo $data['langkah']; ?></h3></div></td>
                         </tr>
-
+			<br>
+			<br>
 
 
                     </table>
