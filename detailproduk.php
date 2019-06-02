@@ -7,7 +7,7 @@
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	    echo "Berhasil";
+	    echo "Berhasil konek";
     } catch(Exception $e) {
         echo "Failed: " . $e;
     } ?>
@@ -45,7 +45,8 @@
                     <?php
                      $sql_select = "SELECT * FROM Resep WHERE kode = '$_GET[kd]'";
                     $stmt = $conn->query($sql_select);
-                    $data = $stmt->fetchAll();                  
+                    $data = $stmt->fetchAll();   
+		    echo $data['gambar'];
 						?>
         		<!--<div class="span4">-->
           			<!--<div class="icons-box">-->
