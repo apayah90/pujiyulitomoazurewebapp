@@ -43,7 +43,9 @@
       		<div class="row">
             <div class="col-sm-6">
                     <?php
-                     $sql_select = "SELECT * FROM Resep WHERE kode = '$_GET[kd]'";
+		    $resep_id = $_GET['kd'];
+		    echo $resep_id;
+                     $sql_select = "SELECT * FROM Resep WHERE kode = $_GET[kd]";
                     $stmt = $conn->query($sql_select);
                     $data = $stmt->fetchAll();   
 		    echo $data['gambar'];
