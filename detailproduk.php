@@ -7,7 +7,7 @@
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	    echo "Berhasil konek";
+	    echo "Berhasil koneksi";
     } catch(Exception $e) {
         echo "Failed: " . $e;
     } ?>
@@ -47,8 +47,9 @@
 		    echo $resep_id;
                      $sql_select = "SELECT * FROM Resep WHERE kode = 4";
                     $stmt = $conn->query($sql_select);
-                    $data = $stmt->fetchAll();   
-		    echo $data['gambar'];
+                    $datas = $stmt->fetchAll();
+		    foreach ($datas as $data) {
+		  
 						?>
         		<!--<div class="span4">-->
           			<!--<div class="icons-box">-->
@@ -72,7 +73,9 @@
                     </div>
                     <!--</div> -->
         		<!--</div> -->
-
+		<?php 
+		    }
+		    ?>
       		</div>
 		
 					
