@@ -93,7 +93,7 @@
                     <!--    <p>
                         
                         </p> -->
-                       <form action="computervision.php" method="post">
+                       <form action="detailproduk.php" method="post">
 									<input type="hidden" name="url" value="<?php echo $data['kode'];?>">
 									<input type="submit" name="submit" value="Analyze!" class="btn btn-primary">
 						
