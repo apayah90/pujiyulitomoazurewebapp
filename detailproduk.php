@@ -1,4 +1,4 @@
-<?php require_once("conn.php");
+<?php
  // This config file
    $host = "pujiyulitomowebappserver.database.windows.net";
     $user = "apayah90";
