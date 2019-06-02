@@ -93,8 +93,12 @@
                     <!--    <p>
                         
                         </p> -->
-                        <div class="clear"><a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="btn btn-lg btn-danger">Detail</a> <a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="clear"> <a href="index.html" class="btn btn-lg btn-success">Beli &raquo;</a></div>
-                    
+                       <form action="computervision.php" method="post">
+									<input type="hidden" name="url" value="<?php echo $data['kode'];?>">
+									<input type="submit" name="submit" value="Analyze!" class="btn btn-primary">
+						
+                        <div class="clear"><a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="btn btn-lg btn-danger">Detail Resep</a> <a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="clear"> <a href="index.html" class="btn btn-lg btn-success">Beli &raquo;</a></div>
+                           </form>
                     </div>
                 </div>
                 <?php   
