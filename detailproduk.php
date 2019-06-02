@@ -45,7 +45,7 @@
                     <?php
 		    $resep_id = $_GET['kd'];
 		    echo $resep_id;
-                     $sql_select = "SELECT * FROM Resep WHERE kode = $_GET[kd]";
+                     $sql_select = "SELECT * FROM Resep WHERE kode = 4";
                     $stmt = $conn->query($sql_select);
                     $data = $stmt->fetchAll();   
 		    echo $data['gambar'];
