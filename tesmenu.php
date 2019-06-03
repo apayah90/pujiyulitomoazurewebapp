@@ -59,9 +59,8 @@
                     ?>
                 <div class="span4">
                     <div class="icons-box">
-                        <div class="title"><h3><?php echo $data['nama']; ?></h3></div>
                         <img src="<?php echo $data['gambar']; ?>" style="border: 2px solid grey; border-radius: 5px; width: 250px; height: 200px;"  />
-                        <div><h3>Rp.<?php echo $data['keterangan']; ?></h3></div>
+                        <div><h3><?php echo $data['nama']; ?></h3></div>
                     <!--    <p>
                         
                         </p> -->
