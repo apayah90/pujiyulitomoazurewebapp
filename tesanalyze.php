@@ -88,7 +88,7 @@
                 "language": "en",
             };
             // Display the image.
-            var sourceImageUrl = <?php echo $data['gambar']; ?>;
+            var sourceImageUrl = "<?php echo $data['gambar']; ?>";
             document.querySelector("#sourceImage").src = sourceImageUrl;
             // Make the REST API call.
             $.ajax({
