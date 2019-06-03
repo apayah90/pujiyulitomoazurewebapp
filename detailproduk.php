@@ -7,7 +7,7 @@
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	    echo "Berhasil koneksi";
+
     } catch(Exception $e) {
         echo "Failed: " . $e;
     } ?>
@@ -45,7 +45,7 @@
                     <?php
 		    $resep_id = $_GET['kd'];
 		    echo $resep_id;
-                     $sql_select = "SELECT * FROM Resep WHERE kode = 4";
+                     $sql_select = "SELECT * FROM Resep WHERE kode = '$_GET['kd']'";
                     $stmt = $conn->query($sql_select);
                     $datas = $stmt->fetchAll();
 		    foreach ($datas as $data) {
