@@ -15,13 +15,7 @@
 
 		    $resep_id = $_GET['kd'];
 		    echo $resep_id;
-                     $sql_select = "SELECT * FROM Resep WHERE kode = $resep_id";
-                    $stmt = $conn->query($sql_select);
-                    $datas = $stmt->fetchAll();
-		    foreach ($datas as $data) {
-		  				$urlgambar = echo $data['gambar']; 
-						echo $urlgambar;
-		    }
+
 		
 ?>
 <!DOCTYPE html>
@@ -47,7 +41,30 @@
 			<!-- end: Container  -->
 
 		</div>	
-
+            <div class="row">
+                    <?php
+                    $sql_select = "SELECT * FROM Resep";
+                    $stmt = $conn->query($sql_select);
+                    $datas = $stmt->fetchAll();
+                    foreach($datas as $data) { 
+                    ?>
+                <div class="span4">
+                    <div class="icons-box">
+                        <img src="<?php echo $data['gambar']; ?>" style="border: 2px solid grey; border-radius: 5px; width: 250px; height: 200px;"  />
+                        <div><h3><?php echo $data['nama']; ?></h3></div>
+                    <!--    <p>
+                        
+                        </p> -->
+			<div class="clear">
+				<a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="btn btn-lg btn-danger">Detail Resep</a>
+			    <a href="tesanalyze.php?kd=<?php echo $data['kode'];?>" class="btn btn-lg btn-success">Analyze!</a> </div>
+                    </div>
+                </div>
+                <?php   
+                    }
+              
+              ?>
+		</div>
 	</div>
 	<!-- end: Page Title -->
 
