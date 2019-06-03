@@ -19,12 +19,7 @@
 <body>
     
 <?php include "header.php"; ?>
-	           <?php
-		    $url_id = $_GET['kd'];
-		    echo $url_id;
 
-		    }
-			?>
 	<!-- start: Page Title -->
 	<div id="page-title">
 
@@ -102,6 +97,17 @@
 	<!-- Wrapper -->
 	<div id="wrapper" style="width:1020px; display:table;">
 	<div id="jsonOutput" style="width:600px; display:table-cell;">
+		    <?php
+		    $resep_id = $_GET['kd'];
+		    echo $resep_id;
+                     $sql_select = "SELECT * FROM Resep WHERE kode = $resep_id";
+                    $stmt = $conn->query($sql_select);
+                    $datas = $stmt->fetchAll();
+		    foreach ($datas as $data) {
+		  				$urlgambar = echo $data['gambar']; 
+						echo $urlgambar;
+		    }
+						?>
 		<b>Response:</b>
 		<br><br>
 		<textarea id="responseTextArea" class="UIInput"
