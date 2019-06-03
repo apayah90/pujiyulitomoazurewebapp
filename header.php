@@ -27,23 +27,11 @@
 			          		</a>
 			          		<div class="nav-collapse collapse">
 			            		<ul class="nav">
-			              			<li class="active"><a href="index.php">Home</a></li>
-                                    <li class="dropdown">
-			                			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
-			                			<ul class="dropdown-menu">
-			                  				<li><a href="produk.php">Menu Makanan</a></li>
-			                			</ul>
-			              			</li>           
+			              			<li class="active"><a href="tesindex.php">Tulis Resep</a></li>
+							<li class="active"><a href="tesmenu.php">Menu</a></li>    
 								
                                     <!-- <li><a href="detail.php">Cart</a></li>-->
                                  
-			              			<li class="dropdown">
-			                			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
-			                			<ul class="dropdown-menu">
-			                  				<li><a href="login.html">Admin</a></li>
-			                  				<li><a href="index.html">Customer</a></li>
-			                			</ul>
-			              			</li>
 			            		</ul>
 			          		</div>
 			        	</div>
