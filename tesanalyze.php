@@ -7,14 +7,9 @@
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	    echo "Berhasil koneksi";
     } catch(Exception $e) {
         echo "Failed: " . $e;
     }  
-
-
-		    $resep_id = $_GET['kd'];
-		    echo $resep_id;
 
 		
 ?>
