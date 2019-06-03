@@ -39,8 +39,9 @@
                     $datas = $stmt->fetchAll();
 		    foreach ($datas as $data) {
 		  				$urlgambar = echo $data['gambar']; 
-						
-						}?>
+						echo $urlgambar;
+		    }
+						?>
 		</div>	
 
 	</div>
@@ -71,7 +72,7 @@
                 "language": "en",
             };
             // Display the image.
-            var sourceImageUrl = "<?php $urlgambar ?>";
+            var sourceImageUrl = "";
             document.querySelector("#sourceImage").src = sourceImageUrl;
             // Make the REST API call.
             $.ajax({
