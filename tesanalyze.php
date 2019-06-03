@@ -10,7 +10,7 @@
     } catch(Exception $e) {
         echo "Failed: " . $e;
     }  
-
+	$resep_id = $_GET['kd'];
 		
 ?>
 <!DOCTYPE html>
