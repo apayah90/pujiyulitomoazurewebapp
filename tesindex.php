@@ -22,6 +22,7 @@
 <?php
     
 require_once 'vendor/autoload.php';
+require_once './random_string.php';
     
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
@@ -74,13 +75,13 @@ if (isset($_POST['submit']))
        } catch (Exception $e) {
            echo "Failed". $e;
        }
-        echo "<h3>Your're registered!</h3>";
+        header("Location: tesmenu.php");
 
 }
 //Upload blob   
 
 if (isset($_POST['submit2'])) {
-        $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+        $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]).generateRandomString();
     $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
     
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
@@ -103,7 +104,6 @@ if (isset($_POST['submit2'])) {
 
 ?>
 
-    <?php include "header.php"; ?>
     <!-- start: Page Title -->
     <div id="page-title">
 
@@ -127,9 +127,9 @@ if (isset($_POST['submit2'])) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Create Record</h2>
+                        <h2>Tulis Resep</h2>
                     </div>
-                    <p>Please fill this form and submit to add recipe record to the database.</p>
+                        <p>Upload Gambar terlebih dahulu, lalu submit untuk menambahkan resep ke database</p>
             
                         
                     <form class="d-flex justify-content-lefr" action="tesindex.php" method="post" enctype="multipart/form-data">
@@ -163,13 +163,13 @@ if (isset($_POST['submit2'])) {
                             <textarea type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
                             <span class="help-block"><?php echo $bahan_err;?></span>
                         </div>
-            <div class="form-group">
+                       <div class="form-group">
                             <label>Langkah</label>
                             <textarea name="langkah" class="form-control"><?php echo $langkah; ?></textarea>
                             <span class="help-block"><?php echo $langkah_err;?></span>
                         </div>
                 
-             <div class="form-group">
+                       <div class="form-group">
                             <label>Keterangan</label>
                 
                             <textarea type="text" name="keterangan" class="form-control" value="<?php echo $keterangan; ?>"></textarea>
