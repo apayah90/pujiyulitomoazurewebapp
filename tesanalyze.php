@@ -43,7 +43,7 @@
 		</div>	
             <div class="row">
                     <?php
-                    $sql_select = "SELECT * FROM Resep";
+                     $sql_select = "SELECT * FROM Resep WHERE kode = $resep_id";
                     $stmt = $conn->query($sql_select);
                     $datas = $stmt->fetchAll();
                     foreach($datas as $data) { 
