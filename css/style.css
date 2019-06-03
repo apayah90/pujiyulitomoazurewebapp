@@ -126,7 +126,7 @@ header {
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
-  	color: #89c236;
+  	color: #000000;
   	text-decoration: none;
 	border-top:4px solid #ffffff;
   	background-color: #fff !important;	
