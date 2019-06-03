@@ -65,7 +65,7 @@
                         
                         </p> -->
 			<div class="clear">
-				<a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="btn btn-lg btn-danger">Detail Resep</a> <a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="clear"> <a href="index.html" class="btn btn-lg btn-success">Beli &raquo;</a></div>
+				<a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="btn btn-lg btn-danger">Detail Resep</a> <a href="detailproduk.php?kd=<?php echo $data['kode'];?>" class="clear"> <a href="tesanalyze.php" class="btn btn-lg btn-success">Analyze!</a></div>
 
                     </div>
                 </div>
