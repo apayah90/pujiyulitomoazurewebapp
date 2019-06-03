@@ -1,188 +1,115 @@
 
-
-
- 
 <!DOCTYPE html>
 <html lang="en">
-    <?php include "head.php";?>
-<head>
-    <meta charset="UTF-8">
-    <title>Create Recipe</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
-            margin: 0 auto;
-        }
-    </style>
-
-</head>
+<?php include "head.php";?>
 <body>
-<?php
     
-require_once 'vendor/autoload.php';
-require_once './random_string.php';
-    
-use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
-use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
-use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
-use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
-    
-// This config file
-    $host = "pujiyulitomowebappserver.database.windows.net";
-    $user = "apayah90";
-    $pass = "terserah90!";
-    $db = "pujiyulitomowebapp";
-    try {
-        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    } catch(Exception $e) {
-        echo "Failed: " . $e;
-    }
- 
- //blob
-    $connectionString = "DefaultEndpointsProtocol=https;AccountName=apayahstorage;AccountKey=l5SpvHYLpKnyEZgyGKA1vuMmmL18jAvZFxGBZPyPxcUB7s0e10yaqSDVauos596TmhjUYH4chpMGUxXvIpK1TA==;";
-    $containerName = "blockblobsiuqbmh";
-// Create blob client.
-    $blobClient = BlobRestProxy::createBlobService($connectionString);
- 
-// Processing form data when form is submitted
-if (isset($_POST['submit']))
-{
+	<?php include "header.php"; ?>
+	<!-- start: Page Title -->
+	<div id="page-title">
 
-    //sql
-       try {
-            $nama = $_POST['nama'];
-            $gambar = $_POST['gambar'];
-            $bahan = $_POST['bahan'];
-            $langkah = $_POST['langkah'];
-        $keterangan = $_POST['keterangan'];
-        //Prepare an insert statement
- 
-        // Insert data
-            $sql_insert = "INSERT INTO Resep (nama, gambar, bahan, langkah, keterangan) 
-                        VALUES (?,?,?,?,?)";
-            $stmt = $conn->prepare($sql_insert);
-            $stmt->bindParam(1, $nama);
-            $stmt->bindParam(2, $gambar);
-            $stmt->bindParam(3, $bahan);
-            $stmt->bindParam(4, $langkah);
-        $stmt->bindParam(5, $keterangan);
-            $stmt->execute();
-           
-       } catch (Exception $e) {
-           echo "Failed". $e;
-       }
-        header("Location: tesmenu.php");
+		<div id="page-title-inner">
 
-}
-//Upload blob   
+			<!-- start: Container -->
+			<div class="container">
 
-if (isset($_POST['submit2'])) {
-        $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]).generateRandomString();
-    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
-    
-    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
- $listBlobsOptions = new ListBlobsOptions();
-      $listBlobsOptions->setPrefix("$fileToUpload");
-      $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-      do{
-          
-            foreach ($result->getBlobs() as $blob)
-            {
-               
-                $var = $blob->getUrl();
+				<h2>Menu Makanan Buka Puasa</h2>
+
+			</div>
+			<!-- end: Container  -->
+
+		</div>	
+
+	</div>
+	<!-- end: Page Title -->
+	
+	<!--start: Wrapper-->
+	<div id="wrapper">
+				
+		<!--start: Container -->
+    	<div class="container"> 
+        <!--<div class="title"><h3>Keranjang Anda</h3></div>
+            <div class="hero-unit">
+            </div> -->            
+      		<!-- start: Row -->
             
-            }
-        
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
-        echo "<br />";
- }
+      		<div class="row">
+	
 
-?>
+        		<div class="span4">
+          			<div class="icons-box">
+                        <div class="title"><h3></h3></div>
+                        <img src="" style="border: 2px solid grey; border-radius: 5px; width: 250px; height: 200px;"/>
+						<div><h3>Rp.</h3></div>
+					<!--	<p>
+						
+						</p> -->
+						<div class="clear"><a href="detailproduk.php?hal=detailbarang&kd=<?php echo $data['kode'];?>" class="btn btn-lg btn-danger">Detail</a>  <a href="index.html" class="btn btn-lg btn-success">Beli &raquo;</a></div>
 
-    <!-- start: Page Title -->
-    <div id="page-title">
-
-        <div id="page-title-inner">
-
-            <!-- start: Container -->
-            <div class="container">
-
-                <a href="https://pujiyulitomowebapp.azurewebsites.net/menu.php"><h2>Menu Makanan Buka Puasa</h2></a>
-
-            </div>
-            <!-- end: Container  -->
-
-        </div>  
-
-    </div>
-    
-    <!-- Start Wrapper -->
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h2>Tulis Resep</h2>
                     </div>
-                        <p>Upload Gambar terlebih dahulu, lalu submit untuk menambahkan resep ke database</p>
-            
-                        
-                    <form class="d-flex justify-content-lefr" action="tesindex.php" method="post" enctype="multipart/form-data">
-                
-                        <div class="form-group">
-                            <label>Upload</label>
-                            <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""> 
-                            <input type="submit" name="submit2" value="Upload Gambar">
+        		</div>
+                <?php   
+  
               
-                
-                        </div>
- 
-     
-                    </form>
+              ?>
+<!---->
+      		</div>
+			<!-- end: Row -->
+					
+					
+				</div>	
+				
+					
+				</div>
+				
+			</div>
+			<!--end: Row-->
+	
+		</div>
+		<!--end: Container-->
+				
+		<!--start: Container -->
+    	<div class="container">	
+      		
+			<hr>
+		
+			<!-- start Clients List	
+			<div class="clients-carousel">
+		
+				<ul class="slides clients">
+					<li><img src="img/logos/1.png" alt=""/></li>
+					<li><img src="img/logos/2.png" alt=""/></li>	
+					<li><img src="img/logos/3.png" alt=""/></li>
+					<li><img src="img/logos/4.png" alt=""/></li>
+					<li><img src="img/logos/5.png" alt=""/></li>
+					<li><img src="img/logos/6.png" alt=""/></li>
+					<li><img src="img/logos/7.png" alt=""/></li>
+					<li><img src="img/logos/8.png" alt=""/></li>
+					<li><img src="img/logos/9.png" alt=""/></li>
+					<li><img src="img/logos/10.png" alt=""/></li>		
+				</ul>
+		
+			</div>
+			end Clients List -->
+		
+		
+		
+		</div>
+		<!--end: Container-->	
 
-                       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-                      <div class="form-group">
+	</div>
+	<!-- end: Wrapper  -->			
 
-                        <label>Url gambar</label>
-                        <textarea type="text" name="gambar" class="form-control" value="<?php echo $gambar; ?>" checked readonly><?php echo $var; ?></textarea>   
-                    </div>   
-                        <div class="form-group">
-             
-                            <label>Nama</label>
-                              <textarea type="text" name="nama" class="form-control" value="<?php echo $nama; ?>"></textarea>
-                
-                        </div>
-
-                        <div class="form-group">
-                            <label>Bahan</label>
-                            <textarea type="text" name="bahan" class="form-control" value="<?php echo $bahan; ?>"></textarea>
-                            <span class="help-block"><?php echo $bahan_err;?></span>
-                        </div>
-                       <div class="form-group">
-                            <label>Langkah</label>
-                            <textarea name="langkah" class="form-control"><?php echo $langkah; ?></textarea>
-                            <span class="help-block"><?php echo $langkah_err;?></span>
-                        </div>
-                
-                       <div class="form-group">
-                            <label>Keterangan</label>
-                
-                            <textarea type="text" name="keterangan" class="form-control" value="<?php echo $keterangan; ?>"></textarea>
-                            <span class="help-block"><?php echo $bahan_err;?></span>
-                
-                        </div>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-
-                    </form>
-                </div>
-            </div>        
-        </div>
-    </div>
+<!-- start: Java Script -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-1.8.2.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/flexslider.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/jquery.cslider.js"></script>
+<script src="js/slider.js"></script>
+<script def src="js/custom.js"></script>
+<!-- end: Java Script -->
 
 </body>
-</html>
+</html>	
