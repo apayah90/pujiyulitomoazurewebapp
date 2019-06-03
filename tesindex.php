@@ -112,7 +112,7 @@ if (isset($_POST['submit2'])) {
             <!-- start: Container -->
             <div class="container">
 
-                <h2>Menu Makanan Buka Puasa</h2>
+                <a href="https://pujiyulitomowebapp.azurewebsites.net/menu.php"><h2>Menu Makanan Buka Puasa</h2></a>
 
             </div>
             <!-- end: Container  -->
@@ -177,8 +177,7 @@ if (isset($_POST['submit2'])) {
                 
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-              
-                        <a href="menu.php" class="btn btn-default">Produk</a>
+
                     </form>
                 </div>
             </div>        
